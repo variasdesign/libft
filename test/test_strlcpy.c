@@ -14,6 +14,11 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	printf("You've entered %s and %s as arguments.\n\n", argv[1], argv[2]);
+	printf("Testing with size -1...\n");
+	ft_strlcpy(dst, src, -1);
+	printf("Result:\ndst: %s\n\n", dst);
+	strcpy(src, argv[1]);
+	strcpy(dst, argv[2]);
 	printf("Testing with size 0...\n");
 	ft_strlcpy(dst, src, 0);
 	printf("Result:\ndst: %s\n\n", dst);

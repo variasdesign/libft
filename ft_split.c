@@ -39,8 +39,8 @@ static void	free_matrix(void)
 
 char	**ft_split(const char *s, char c)
 {
-	size_t		i;
-	size_t		j;
+	size_t		word_index;
+	size_t		char_index;
 	size_t		word_len;
 	char		**split_str;
 	const int	count = word_count(s, c);
@@ -50,17 +50,17 @@ char	**ft_split(const char *s, char c)
 	split_str = ft_calloc(count + 1, sizeof(char *));
 	if (!split_str)
 		return (NULL);
-	i = 0;
-	j = 0;
+	word_index = 0;
+	char_index = 0;
 	word_len = 0;
-	while (i < count + 1)
+	while (word_index < count)
 	{
-		while (s[j] == c)
-			j++;
-		word_len = ft_strchr(s, c) - &s[j];
-		split_str[i] = ft_substr(s, j, word_len);
-		j = j + word_len;
-		i++;
+		while (s[char_index] == c)
+			char_index++;
+		word_len = ft_strchr(s, c) - &s[char_index];
+		split_str[word_index] = ft_substr(s, char_index, word_len);
+		char_index = char_index + word_len;
+		word_index++;
 	}
 	return (split_str);
 }

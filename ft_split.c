@@ -21,6 +21,8 @@ static int	word_count(const char *s, const char c)
 
 	count = 1;
 	i = 0;
+	while (s[i] == c)
+		i++;
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -37,7 +39,7 @@ static int	word_count(const char *s, const char c)
 
 static char	**free_matrix(char **split_str, const int count)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < count)
@@ -51,10 +53,11 @@ static char	**free_matrix(char **split_str, const int count)
 
 char	**ft_split(const char *s, char c)
 {
-	size_t		word_i;
-	size_t		char_i;
-	char		**split_str;
-	const int	count = word_count(s, c);
+	const unsigned int		count = word_count(s, c);
+	unsigned int			word_i;
+	unsigned int			word_len;
+	size_t					char_i;
+	char					**split_str;
 
 	if (!s)
 		return (NULL);
@@ -67,10 +70,11 @@ char	**ft_split(const char *s, char c)
 	{
 		while (s[char_i] == c)
 			char_i++;
-		split_str[word_i] = ft_substr(s, char_i, ft_strchr(s, c) - &s[char_i]);
+		word_len = ft_strchr(s + char_i, c) - &s[char_i];
+		split_str[word_i] = ft_substr(s, char_i, word_len);
 		if (!split_str[word_i])
 			return (free_matrix(split_str, count));
-		char_i = char_i + ft_strchr(s, c) - &s[char_i];
+		char_i = char_i + word_len;
 		word_i++;
 	}
 	return (split_str);

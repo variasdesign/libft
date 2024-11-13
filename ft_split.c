@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
+#include <stdlib.h>
 
 static int	word_count(const char *s, const char c)
 {
@@ -33,15 +35,24 @@ static int	word_count(const char *s, const char c)
 	return (count);
 }
 
-static void	free_matrix(void)
+static char	**free_matrix(char **split_str, const int count)
 {
+	size_t	i;
+
+	i = 0;
+	while (i < count)
+	{
+		free((void *)split_str[i]);
+		i++;
+	}
+	free((void *)split_str);
+	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	size_t		word_index;
-	size_t		char_index;
-	size_t		word_len;
+	size_t		word_i;
+	size_t		char_i;
 	char		**split_str;
 	const int	count = word_count(s, c);
 
@@ -49,18 +60,18 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	split_str = ft_calloc(count + 1, sizeof(char *));
 	if (!split_str)
-		return (NULL);
-	word_index = 0;
-	char_index = 0;
-	word_len = 0;
-	while (word_index < count)
+		return (free_matrix(split_str, count));
+	word_i = 0;
+	char_i = 0;
+	while (word_i < count)
 	{
-		while (s[char_index] == c)
-			char_index++;
-		word_len = ft_strchr(s, c) - &s[char_index];
-		split_str[word_index] = ft_substr(s, char_index, word_len);
-		char_index = char_index + word_len;
-		word_index++;
+		while (s[char_i] == c)
+			char_i++;
+		split_str[word_i] = ft_substr(s, char_i, ft_strchr(s, c) - &s[char_i]);
+		if (!split_str[word_i])
+			return (free_matrix(split_str, count));
+		char_i = char_i + ft_strchr(s, c) - &s[char_i];
+		word_i++;
 	}
 	return (split_str);
 }

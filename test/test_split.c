@@ -23,16 +23,19 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		printf("Please introduce a single string");
 	printf("Splitting string with delimiter SPACE...\n");
-	split_str = ft_split(argv[1], ' ');	
+	split_str = ft_split(argv[1], ' ');
 	print_words(split_str);
 	printf("Splitting string with delimiter \"...\n");
-	split_str = ft_split(argv[1], '"');	
+	split_str = ft_split(argv[1], '"');
 	print_words(split_str);
 	printf("Splitting string with delimiter \\n...\n");
-	split_str = ft_split(argv[1], '\n');	
+	split_str = ft_split(argv[1], '\n');
+	print_words(split_str);
+	printf("Splitting string with delimiter \\t...\n");
+	split_str = ft_split(argv[1], '\t');
 	print_words(split_str);
 	printf("Splitting string with delimiter a...\n");
-	split_str = ft_split(argv[1], ' ');	
+	split_str = ft_split(argv[1], ' ');
 	print_words(split_str);
 	return (0);
 }

@@ -2,14 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(int argc, char **argv)
+void print_words(char **split_str)
 {
 	size_t i;
-	char **split_str;
 
-	if (argc != 3)
-		printf("Please introduce a single string, followed by a single char which will act as delimiter");
-	split_str = ft_split(argv[1], argv[2][0]);	
 	printf("Printing split words...\n");
 	i = 0;
 	while (split_str[i])
@@ -18,5 +14,25 @@ int main(int argc, char **argv)
 		i++;
 	}
 	printf("Done!\n");
+}
+
+int main(int argc, char **argv)
+{
+	char **split_str;
+
+	if (argc != 2)
+		printf("Please introduce a single string");
+	printf("Splitting string with delimiter SPACE...\n");
+	split_str = ft_split(argv[1], ' ');	
+	print_words(split_str);
+	printf("Splitting string with delimiter \"...\n");
+	split_str = ft_split(argv[1], '"');	
+	print_words(split_str);
+	printf("Splitting string with delimiter \\n...\n");
+	split_str = ft_split(argv[1], '\n');	
+	print_words(split_str);
+	printf("Splitting string with delimiter a...\n");
+	split_str = ft_split(argv[1], ' ');	
+	print_words(split_str);
 	return (0);
 }

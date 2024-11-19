@@ -25,7 +25,7 @@ static int	nbrlen(int n, int count)
 	return (count);
 }
 
-static char *putnbr(int n, int count, int pos, char *str)
+static char	*putnbr(int n, int count, int pos, char *str)
 {
 	while (pos < count)
 	{
@@ -36,7 +36,7 @@ static char *putnbr(int n, int count, int pos, char *str)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		magnitude;
@@ -49,17 +49,17 @@ char *ft_itoa(int n)
 	if (n < 0)
 	{
 		str[0] = '-';
-		str = putnbr(-n, magnitude, 2, str); 
+		str = putnbr(-n, magnitude, 2, str);
 	}
 	else
-		str = putnbr(n, magnitude, 1, str);	
+		str = putnbr(n, magnitude, 1, str);
 	str[magnitude - 1] = '\0';
 	return (str);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	char *str;
+	char	*str;
 
 	if (argc != 2)
 	{

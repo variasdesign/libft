@@ -7,15 +7,6 @@ SRCS	= ft_atoi.c \
 		  ft_isdigit.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
-		  ft_lstadd_back.c \
-		  ft_lstadd_front.c \
-		  ft_lstclear.c \
-		  ft_lstdelone.c \
-		  ft_lstiter.c \
-		  ft_lstlast.c \
-		  ft_lstmap.c \
-		  ft_lstnew.c \
-		  ft_lstsize.c \
 		  ft_memchr.c \
 		  ft_memcmp.c \
 		  ft_memcpy.c \
@@ -42,27 +33,49 @@ SRCS	= ft_atoi.c \
 		  ft_tolower.c \
 		  ft_toupper.c
 
-OBJS	= ${SRCS:.c=.o}
+SRCSB	= ft_lstadd_back.c \
+		  ft_lstadd_front.c \
+		  ft_lstclear.c \
+		  ft_lstdelone.c \
+		  ft_lstiter.c \
+		  ft_lstlast.c \
+		  ft_lstmap.c \
+		  ft_lstnew.c \
+		  ft_lstsize.c \
+		  ${SRCS}
 
-NAME	= libft.a
+NAME = libft.a
 
-CC		= gcc
-RM		= rm -f
+OBJS_DIR = objs/
+OBJS = $(SRCS:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-CFLAGS 	= -Wall -Wextra -Werror
+OBJSB = $(SRCSB:.c=.o)
+OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-all:		${NAME}
+CC = clang
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+CC_FLAGS = -Wall -Wextra -Werror
 
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+$(OBJS_DIR)%.o : %.c libft.h
+	@mkdir -p $(OBJS_DIR)
+	@echo "Compiling: $<"
+	@clang $(CC_FLAGS) -c $< -o $@
 
-clean:  
-			${RM} ${OBJS}
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@echo "Libft Done!"
 
-fclean:		clean
-			${RM} ${NAME}
+all: $(NAME)
 
-re:			fclean all
+clean:
+	rm -rf $(OBJS_DIR)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+bonus: $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@echo "Libft Bonus Done!"

@@ -10,24 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-int	ft_check_base(char *base)
+static int	check_base(char *base)
 {
 	int	i;
 	int	j;
@@ -50,12 +35,12 @@ int	ft_check_base(char *base)
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+static void	ft_putnbr_base(int nbr, char *base, int fd)
 {
 	int	base_length;
 	int	n;
 
-	if (ft_check_base(base) == 1)
+	if (check_base(base) == 1)
 		return ;
 	base_length = ft_strlen(base);
 	if (base_length < 2)
@@ -63,12 +48,17 @@ void	ft_putnbr_base(int nbr, char *base)
 	n = 0;
 	if (nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', fd);
 		n = nbr * -1;
 	}
 	else
 		n = nbr;
 	if (n / base_length != 0)
-		ft_putnbr_base(n / base_length, base);
-	ft_putchar(base[nbr % base_length]);
+		ft_putnbr_base(n / base_length, base, fd);
+	ft_putchar_fd(base[nbr % base_length], fd);
+}
+
+void ft_putnbr_fd(int n, int fd)
+{
+	ft_putnbr_base(n, "10", fd);
 }

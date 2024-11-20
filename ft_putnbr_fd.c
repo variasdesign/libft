@@ -58,7 +58,7 @@ static void	ft_putnbr_base(int nbr, char *base, int fd)
 	ft_putchar_fd(base[nbr % base_length], fd);
 }
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	ft_putnbr_base(n, "10", fd);
 }

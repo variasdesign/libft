@@ -56,17 +56,3 @@ char	*ft_itoa(int n)
 	str[magnitude - 1] = '\0';
 	return (str);
 }
-
-int	main(int argc, char **argv)
-{
-	char	*str;
-
-	if (argc != 2)
-	{
-		printf("Please input a single argument");
-		return (1);
-	}
-	str = ft_itoa(ft_atoi(argv[1]));
-	printf("%s\n", str);
-	return (0);
-}

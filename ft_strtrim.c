@@ -17,7 +17,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	start;
 	size_t	len;
 
-	if (!s1 | !set)
+	if (!s1 || !set)
 		return (NULL);
 	start = 0;
 	while (s1[start] && ft_strchr(set, s1[start]) != NULL)
@@ -26,4 +26,12 @@ char	*ft_strtrim(const char *s1, const char *set)
 	while (len > start && ft_strchr(set, s1[len]) != NULL)
 		len--;
 	return (ft_substr(s1, start, len));
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc != 3)
+		return (1);
+	ft_strtrim(argv[1], argv[2]);
+	return (0);
 }

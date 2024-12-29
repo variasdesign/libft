@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i] && i < len)
 	{
 		j = 0;
-		while (little[j] == big[i + j] && big[i + j])
+		while (little[j] == big[i + j] && big[i + j] && i + j < len)
 			j++;
 		if (little[j] == '\0')
 			return ((char *)&big[i]);
@@ -31,3 +31,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+
+/*
+int	main(int argc, char **argv)
+{
+	int len = 0;
+	if (argc != 3)
+		return (1);
+	ft_strnstr(argv[1], argv[2], len);
+	return(0);
+}
+*/

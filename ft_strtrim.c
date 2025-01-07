@@ -25,9 +25,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 	len = ft_strlen(s1) - 1;
 	while (len > start && ft_strchr(set, s1[len]) != NULL)
 		len--;
-	return (ft_substr(s1, start, len));
+	return (ft_substr(s1, start, len + 1 - start));
 }
-
+/*
 int	main(int argc, char **argv)
 {
 	if (argc != 3)
@@ -35,3 +35,4 @@ int	main(int argc, char **argv)
 	ft_strtrim(argv[1], argv[2]);
 	return (0);
 }
+*/

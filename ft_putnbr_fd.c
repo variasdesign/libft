@@ -37,8 +37,8 @@ static int	check_base(char *base)
 
 static void	ft_putnbr_base(int nbr, char *base, int fd)
 {
-	int	base_length;
-	int	n;
+	int		base_length;
+	long	n;
 
 	if (check_base(base) == 1)
 		return ;
@@ -49,16 +49,24 @@ static void	ft_putnbr_base(int nbr, char *base, int fd)
 	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n = nbr * -1;
+		n = (long) nbr * -1;
 	}
 	else
 		n = nbr;
 	if (n / base_length != 0)
 		ft_putnbr_base(n / base_length, base, fd);
-	ft_putchar_fd(base[nbr % base_length], fd);
+	ft_putchar_fd(base[n % base_length], fd);
 }
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putnbr_base(n, "10", fd);
+	ft_putnbr_base(n, "0123456789", fd);
 }
+/**/
+/* int	main (int argc, char **argv) */
+/* { */
+/* 	if (argc != 2) */
+/* 		return (1); */
+/* 	ft_putnbr_fd(atoi(argv[1]), 2); */
+/* 	return (0); */
+/* } */

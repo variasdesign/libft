@@ -18,20 +18,20 @@ static int	word_count(const char *s, const char c)
 {
 	size_t	i;
 	int		count;
+	int		inside_word;
 
-	count = 1;
 	i = 0;
-	while (s[i] == c)
-		i++;
+	count = 0;
+	inside_word = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && !inside_word)
 		{
 			count++;
-			while (s[i] == c)
-				i++;
-			continue ;
+			inside_word = 1;
 		}
+		else if (s[i] == c)
+			inside_word = 0;
 		i++;
 	}
 	return (count);
@@ -79,3 +79,12 @@ char	**ft_split(const char *s, char c)
 	}
 	return (split_str);
 }
+/**/
+/* int	main(int argc, char **argv) */
+/* { */
+/* 	char c = 0; */
+/* 	if (argc != 2) */
+/* 		return (1); */
+/* 	ft_split(argv[1], c); */
+/* 	return (0); */
+/* } */

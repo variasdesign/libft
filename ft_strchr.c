@@ -14,16 +14,5 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t			i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return ((char *) &s[i]);
-		i++;
-	}
-	if (s[i] == c)
-		return ((char *) &s[i]);
-	return (NULL);
+	return ((char *)ft_memchr((void *) s, c, ft_strlen(s) + 1));
 }

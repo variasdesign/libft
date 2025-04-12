@@ -55,7 +55,7 @@ OBJ_BONUS_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ_BONUS))
 
 CC = clang
 
-CC_FLAGS = -Wall -Wextra -Werror -Iinclude
+CC_FLAGS = -Wall -Wextra -Werror -I$(SRC_DIR)
 
 %.o : $(SRC_DIR)/%.c
 	@echo "Compiling: $<"

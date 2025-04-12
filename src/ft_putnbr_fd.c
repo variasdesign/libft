@@ -35,32 +35,51 @@ static int	check_base(char *base)
 	return (0);
 }
 
-static void	ft_putnbr_base(int nbr, char *base, int fd)
+static int	ft_putnbr_signed(long nbr, char *base, int fd)
 {
 	int		base_length;
-	long	n;
+	size_t	count;
 
+	count = 0;
 	if (check_base(base) == 1)
-		return ;
+		return (0);
 	base_length = ft_strlen(base);
 	if (base_length < 2)
-		return ;
-	n = 0;
+		return (0);
 	if (nbr < 0)
 	{
-		ft_putchar_fd('-', fd);
-		n = (long) nbr * -1;
+		count += ft_putchar_fd('-', fd);
+		nbr = nbr * -1;
 	}
-	else
-		n = nbr;
-	if (n / base_length != 0)
-		ft_putnbr_base(n / base_length, base, fd);
-	ft_putchar_fd(base[n % base_length], fd);
+	if (nbr / base_length != 0)
+		count += ft_putnbr_signed(nbr / base_length, base, fd);
+	count += ft_putchar_fd(base[nbr % base_length], fd);
+	return (count);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+static int	ft_putnbr_unsigned(unsigned long nbr, char *base, int fd)
 {
-	ft_putnbr_base(n, "0123456789", fd);
+	int		base_length;
+	size_t	count;
+
+	count = 0;
+	if (check_base(base) == 1)
+		return (0);
+	base_length = ft_strlen(base);
+	if (base_length < 2)
+		return (0);
+	if (nbr / base_length != 0)
+		count += ft_putnbr_unsigned(nbr / base_length, base, fd);
+	count += ft_putchar_fd(base[nbr % base_length], fd);
+	return (count);
+}
+
+size_t	ft_putnbr_fd(int n, int fd, char *base, t_bool sign)
+{
+	if (sign)
+		return (ft_putnbr_signed(n, base, fd));
+	else
+		return (ft_putnbr_unsigned(n, base, fd));
 }
 /**/
 /* int	main (int argc, char **argv) */

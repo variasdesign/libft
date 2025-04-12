@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 20:04:47 by varias-c          #+#    #+#             */
-/*   Updated: 2024/09/23 20:04:47 by varias-c         ###   ########.fr       */
+/*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
+/*   Updated: 2025/02/19 18:56:42 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-size_t	ft_strlen(const char *s)
-{
-	int	len;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include "../libft/src/libft.h"
 
-	if (!s)
-		return (0);
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
+
+int		ft_printf(const char *fmt, ...);
+t_bool	check_specifiers(const char *s);
+
+#endif

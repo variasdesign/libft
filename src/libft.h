@@ -51,6 +51,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putnbr_fd(int n, int fd, char *base, t_bool sign);
+size_t	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
@@ -69,7 +70,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putstr_fd(char *s, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

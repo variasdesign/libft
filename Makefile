@@ -1,4 +1,4 @@
-SRC	=	ft_isalnum.c \
+SRCS	=	ft_isalnum.c \
 		ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -36,7 +36,7 @@ SRC	=	ft_isalnum.c \
 		ft_toupper.c \
 		get_next_line.c
 
-SRC_BONUS	= ft_lstadd_back_bonus.c \
+SRCS_BONUS	= ft_lstadd_back_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstclear_bonus.c \
 			ft_lstdelone_bonus.c \
@@ -45,15 +45,15 @@ SRC_BONUS	= ft_lstadd_back_bonus.c \
 			ft_lstmap_bonus.c \
 			ft_lstnew_bonus.c \
 			ft_lstsize_bonus.c \
-			${SRC}
+			${SRCS}
 
 NAME = libft.a
 
 SRC_DIR := src
 
-OBJ := $(SRC:.c=.o)
+OBJ := $(SRCS:.c=.o)
 
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 OBJ_BONUS_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ_BONUS))
 
 CC = clang

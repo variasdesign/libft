@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/04/18 14:52:22 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/04/19 21:22:12 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		ft_printf(const char *fmt, ...);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+size_t	ft_arrlen(void **ptr);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd, char *base, t_bool sign);

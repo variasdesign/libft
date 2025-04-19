@@ -17,7 +17,7 @@ size_t	ft_arrlen(void **ptr)
 	size_t	len;
 
 	len = 0;
-	while (*ptr)
+	while (ptr[len])
 		len++;
 	return (len);
 }

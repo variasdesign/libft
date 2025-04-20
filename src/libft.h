@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/04/19 21:22:12 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/04/20 13:17:54 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_bool	set_line(char **line, char *remaining_chars);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
+void	**ft_freematrix(void **matrix, size_t count);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

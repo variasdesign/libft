@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:23:18 by varias-c          #+#    #+#             */
-/*   Updated: 2025/01/11 17:23:19 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/04/20 13:19:08 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,6 @@ static int	word_count(const char *s, const char c)
 	return (count);
 }
 
-static char	**free_matrix(char **split_str, const int count)
-{
-	int	i;
-
-	if (!split_str)
-		return (NULL);
-	i = 0;
-	while (i < count)
-	{
-		free((void *)split_str[i]);
-		i++;
-	}
-	free((void *)split_str);
-	return (NULL);
-}
-
 static unsigned int	calculate_word_index(const char *s, size_t char_i, char c)
 {
 	unsigned int	word_len;
@@ -77,7 +61,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	split_str = ft_calloc(count + 1, sizeof(char *));
 	if (!split_str)
-		return (free_matrix(split_str, count));
+		return ((char **)ft_freematrix((void **)split_str, count));
 	word_i = -1;
 	char_i = 0;
 	while (++word_i < count)
@@ -87,7 +71,7 @@ char	**ft_split(const char *s, char c)
 		word_len = calculate_word_index(s, char_i, c);
 		split_str[word_i] = ft_substr(s, char_i, word_len);
 		if (!split_str[word_i])
-			return (free_matrix(split_str, count));
+			return ((char **)ft_freematrix((void **)split_str, count));
 		char_i = char_i + word_len;
 	}
 	return (split_str);

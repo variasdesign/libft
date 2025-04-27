@@ -14,7 +14,7 @@
 
 void	**ft_freematrix(void **matrix, const size_t count)
 {
-	int	i;
+	size_t	i;
 
 	if (!matrix)
 		return (NULL);

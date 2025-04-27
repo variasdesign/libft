@@ -25,12 +25,3 @@ void	*ft_intset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-
-int	main()
-{
-	int *test_memset = malloc(sizeof(int) * 10);
-	int *test_intset = malloc(sizeof(int) * 10);
-	
-	test_memset = ft_memset(test_memset, -1, 10);
-	test_intset = ft_intset(test_intset, -1, 10);
-}

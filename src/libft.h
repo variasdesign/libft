@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <bits/types.h>
+# include <limits.h>
 
 # define BASE_DEC "0123456789"
 # define BASE_HEX_LO "0123456789abcdef"

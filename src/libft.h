@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/04/20 13:17:54 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:04:57 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdarg.h>
 # include <bits/types.h>
 # include <limits.h>
-
 # define BASE_DEC "0123456789"
 # define BASE_HEX_LO "0123456789abcdef"
 # define BASE_HEX_UP "0123456789ABCDEF"
@@ -50,6 +49,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
 char	*read_into_buffer(int fd, char *remaining_chars);
+int		ft_abs(int n);
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

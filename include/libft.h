@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/22 14:04:57 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:35:04 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	ft_lstadd_back(t_list **lst, t_list *new_item);
 void	ft_lstadd_front(t_list **lst, t_list *new_item);
+void	ft_lstadd_insert(t_list **list, t_list *new_node, ssize_t pos);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));

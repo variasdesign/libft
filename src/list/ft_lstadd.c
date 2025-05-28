@@ -60,6 +60,8 @@ void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos)
 		}
 		new_node->next = node->next;
 		node->next = new_node;
+		if (!new_node->next)
+			list->tail = new_node;
 	}
 	list->count++;
 }

@@ -69,7 +69,7 @@ t_node	*ft_lstnew_node(size_t data_size, void *content);
 void	*ft_lstget_data(t_list *list, size_t index);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
-void	ft_lstadd_insertafter(t_list *list, t_node *new_node, ssize_t pos);
+void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos);
 void	ft_lstdel_list(t_list *list, void (*del)(void *));
 void	ft_lstdel_node(t_node *node, void (*del)(void *));
 void	ft_lstiter(t_list *list, void (*f)(void *));

@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 18:40:18 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 19:15:20 by varias-c         ###   ########.fr       */
+/*   Created: 2025/05/28 19:11:13 by varias-c          #+#    #+#             */
+/*   Updated: 2025/05/28 19:15:26 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_node	*ft_lstfind_index(t_list *list, size_t index)
+void	*ft_lstget_data(t_list *list, size_t index)
 {
-	size_t	i;
 	t_node	*node;
 
-	if (!list || !(index < list->count))
-		return (NULL);
-	node = list->head;
-	i = 0;
-	while (node != NULL)
-	{
-		if (i == index)
-			return (node);
-		node = node->next;
-		i++;
-	}
+	node = ft_lstfind_index(list, index);
+	if (node)
+		return (node->content);
 	return (NULL);
 }

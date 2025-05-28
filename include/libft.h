@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 18:22:14 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 19:14:34 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 // LIST
-size_t	ft_lstsize(t_list *lst);
 //t_list	*arr_to_list(t_list **lst, void *arr);
+size_t	ft_lstsize(t_list *lst);
 t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew_list(size_t data_size);
+t_node	*ft_lstfind_index(t_list *list, size_t index);
 t_node	*ft_lstlast(t_list *list);
 t_node	*ft_lstnew_node(size_t data_size, void *content);
+void	*ft_lstget_data(t_list *list, size_t index);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
 void	ft_lstadd_insertafter(t_list *list, t_node *new_node, ssize_t pos);

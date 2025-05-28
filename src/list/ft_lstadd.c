@@ -34,6 +34,7 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 	else
 	{
 		list->tail->next = new_node;
+		list->tail = new_node;
 	}
 	list->count++;
 }

@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:22:51 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 16:54:05 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:22:16 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *))
 	while (old_node)
 	{
 		curr_content = f(old_node->content);
-		new_node = ft_lst_newnode(list->data_size, curr_content);
+		new_node = ft_lstnew_node(list->data_size, curr_content);
 		if (!new_node)
 		{
 			del(curr_content);
-			ft_lstclear(new_list, del);
+			ft_lstdel_list(new_list, del);
 			return (NULL);
 		}
 		ft_lstadd_back(new_list, new_node);

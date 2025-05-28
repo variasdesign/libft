@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 17:05:23 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:22:14 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,14 @@ int		ft_toupper(int c);
 size_t	ft_lstsize(t_list *lst);
 //t_list	*arr_to_list(t_list **lst, void *arr);
 t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstnew_list(size_t data_size);
 t_node	*ft_lstlast(t_list *list);
-t_node	*ft_lst_newnode(size_t data_size, void *content);
+t_node	*ft_lstnew_node(size_t data_size, void *content);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
-void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos);
-void	ft_lstclear(t_list *list, void (*del)(void *));
-void	ft_lstdelone(t_node *node, void (*del)(void *));
+void	ft_lstadd_insertafter(t_list *list, t_node *new_node, ssize_t pos);
+void	ft_lstdel_list(t_list *list, void (*del)(void *));
+void	ft_lstdel_node(t_node *node, void (*del)(void *));
 void	ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY

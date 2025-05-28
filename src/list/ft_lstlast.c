@@ -6,20 +6,21 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:45:40 by varias-c          #+#    #+#             */
-/*   Updated: 2024/11/20 11:49:30 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:06:43 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_list *list)
 {
-	t_list	*tmp;
+	t_node	*node;
 
-	if (!lst)
+	if (!list || !list->head || !list->tail)
 		return (NULL);
-	tmp = lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	node = list->head;
+	while (node->next)
+		node = node->next;
+	list->tail = node;
+	return (list->tail);
 }

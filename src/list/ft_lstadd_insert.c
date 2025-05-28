@@ -12,24 +12,27 @@
 
 #include "libft.h"
 
-void	ft_lstadd_insert(t_list **list, t_list *new_node, ssize_t pos)
+void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos)
 {
-	t_list	*tmp;
+	t_node	*node;
 
-	tmp = *list;
-	if (!tmp)
-		tmp = new_node;
+	if (!list || !new_node || pos < 0)
+		return ;
+	if (!list->head)
+		list->head = new_node;
 	else
 	{
+		node = list->head;
 		while (pos > 0)
 		{
-			if (tmp->next)
-				tmp = tmp->next;
+			if (node->next)
+				node = node->next;
 			else
 				break ;
 			pos--;
 		}
-		new_node->next = tmp->next;
-		tmp->next = new_node;
+		new_node->next = node->next;
+		node->next = new_node;
 	}
+	list->count++;
 }

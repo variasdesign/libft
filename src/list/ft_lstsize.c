@@ -6,23 +6,24 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:41:20 by varias-c          #+#    #+#             */
-/*   Updated: 2024/11/20 11:45:14 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:08:13 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+size_t	ft_lstsize(t_list *list)
 {
-	t_list	*tmp;
-	int		i;
+	t_node	*node;
+	size_t	i;
 
-	tmp = lst;
+	node = list->head;
 	i = 0;
-	while (tmp)
+	while (node)
 	{
-		tmp = tmp->next;
+		node = node->next;
 		i++;
 	}
-	return (i);
+	list->count = i;
+	return (list->count);
 }

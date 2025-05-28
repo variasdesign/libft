@@ -6,20 +6,20 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:23:13 by varias-c          #+#    #+#             */
-/*   Updated: 2024/11/20 12:25:12 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:08:04 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *list, void (*f)(void *))
 {
-	t_list	*tmp;
+	t_node	*node;
 
-	tmp = lst;
-	while (tmp)
+	node = list->head;
+	while (node)
 	{
-		f(tmp->content);
-		tmp = tmp->next;
+		f(node->content);
+		node = node->next;
 	}
 }

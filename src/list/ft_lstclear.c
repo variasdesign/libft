@@ -6,22 +6,25 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:13:13 by varias-c          #+#    #+#             */
-/*   Updated: 2024/11/20 12:16:50 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:08:34 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list *list, void (*del)(void *))
 {
-	t_list	*tmp;
+	t_node	*node;
+	t_node	*next;
 
-	if (!lst || !*lst || !del)
+	if (!list || !list->head || !del)
 		return ;
-	while (*lst)
+	node = list->head;
+	while (node)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		next = node->next;
+		ft_lstdelone(node, del);
+		node = next;
+		list->count--;
 	}
 }

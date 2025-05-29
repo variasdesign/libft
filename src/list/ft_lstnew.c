@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_node	*ft_lstnew_node(size_t data_size, void *content)
+t_node	*ft_lstnew_node(ssize_t data_size, void *content)
 {
 	t_node	*node;
 
@@ -25,7 +25,7 @@ t_node	*ft_lstnew_node(size_t data_size, void *content)
 	return (node);
 }
 
-t_list	*ft_lstnew_list(size_t data_size)
+t_list	*ft_lstnew_list(ssize_t data_size)
 {
 	t_list	*list;
 

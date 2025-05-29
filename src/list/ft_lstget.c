@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_lstget_data(t_list *list, size_t index)
+void	*ft_lstget_data(t_list *list, ssize_t index)
 {
 	t_node	*node;
 

@@ -65,7 +65,7 @@ t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew_list(ssize_t data_size);
 t_node	*ft_lstfind_index(t_list *list, ssize_t index);
 t_node	*ft_lstlast(t_list *list);
-t_node	*ft_lstnew_node(size_t data_size, void *content);
+t_node	*ft_lstnew_node(ssize_t data_size, void *content);
 void	*ft_lstget_data(t_list *list, ssize_t index);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);

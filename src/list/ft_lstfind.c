@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-t_node	*ft_lstfind_index(t_list *list, size_t index)
+t_node	*ft_lstfind_index(t_list *list, ssize_t index)
 {
-	size_t	i;
+	ssize_t	i;
 	t_node	*node;
 
 	if (!list || !(index < list->count))

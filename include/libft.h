@@ -39,8 +39,8 @@ typedef struct s_node
 
 typedef struct s_list
 {
-	size_t	count;
-	size_t	data_size;
+	ssize_t	count;
+	ssize_t	data_size;
 	t_node	*head;
 	t_node	*tail;
 }	t_list;

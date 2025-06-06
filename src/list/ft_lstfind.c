@@ -19,7 +19,7 @@ t_node	*ft_lstfind_content(t_list *list, void *data)
 	node = list->head;
 	while (node->next != NULL)
 	{
-		if (list->cmp(node->content, data) == 0)
+		if (*(ssize_t *)node->content == *(ssize_t *)data)
 			return (node);
 		node = node->next;
 	}

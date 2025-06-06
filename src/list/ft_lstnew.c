@@ -26,7 +26,7 @@ t_node	*ft_lstnew_node(ssize_t data_size, void *content)
 	return (node);
 }
 
-t_list	*ft_lstnew_list(ssize_t data_size, t_callback_compare cmp)
+t_list	*ft_lstnew_list(ssize_t data_size)
 {
 	t_list	*list;
 
@@ -37,6 +37,5 @@ t_list	*ft_lstnew_list(ssize_t data_size, t_callback_compare cmp)
 	list->data_size = data_size;
 	list->head = NULL;
 	list->tail = NULL;
-	list->cmp = cmp;
 	return (list);
 }

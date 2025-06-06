@@ -25,8 +25,6 @@
 # define VAR_SPECIFIERS "cspdiuxX%"
 # define BUFFER_SIZE 100
 
-typedef int	(*t_callback_compare)(void *a, void *b);
-
 typedef enum e_bool
 {
 	f,
@@ -46,7 +44,6 @@ typedef struct s_list
 	ssize_t				data_size;
 	t_node				*head;
 	t_node				*tail;
-	t_callback_compare	cmp;
 }	t_list;
 
 // ARRAY
@@ -67,7 +64,7 @@ int		ft_toupper(int c);
 size_t	ft_lstsize(t_list *lst);
 ssize_t	ft_lstfind_pos(t_list *list, t_node *node_to_find);
 t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew_list(ssize_t data_size, t_callback_compare cmp);
+t_list	*ft_lstnew_list(ssize_t data_size);
 t_node	*ft_lstfind_content(t_list *list, void *data);
 t_node	*ft_lstfind_index(t_list *list, ssize_t index);
 t_node	*ft_lstlast(t_list *list);

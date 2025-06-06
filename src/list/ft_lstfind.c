@@ -26,6 +26,25 @@ t_node	*ft_lstfind_content(t_list *list, void *data)
 	return (NULL);
 }
 
+ssize_t ft_lstfind_pos(t_list *list, t_node *node_to_find)
+{
+	ssize_t	i;
+	t_node	*node;
+
+	if (!list)
+		return (-1);
+	i = 0;
+	node = list->head;
+	while (node != node_to_find || !(i < list->count))
+	{
+		i++;
+		node = node->next;
+	}
+	if (i < list->count)
+		return (i);
+	return (-1);
+}
+
 t_node	*ft_lstfind_index(t_list *list, ssize_t index)
 {
 	ssize_t	i;

@@ -20,15 +20,15 @@ void	ft_lstadd_front(t_list *list, t_node *new_node)
 	{
 		list->tail = new_node;
 		list->head = new_node;
-		new_node->next = list->head;
+		new_node->next = NULL;
 	}
 	else
 	{
-		new_node->next->prev = new_node;
 		new_node->next = list->head;
+		new_node->next->prev = new_node;
 		list->head = new_node;
 	}
-	new_node->prev = list->tail;
+	new_node->prev = NULL;
 	list->count++;
 }
 
@@ -40,7 +40,7 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 	{
 		list->head = new_node;
 		list->tail = new_node;
-		new_node->prev = list->tail;
+		new_node->prev = NULL;
 	}
 	else
 	{
@@ -48,7 +48,7 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 		new_node->prev = list->tail;
 		list->tail = new_node;
 	}
-	new_node->next = list->head;
+	new_node->next = NULL;
 	list->count++;
 }
 

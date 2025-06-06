@@ -25,6 +25,8 @@
 # define VAR_SPECIFIERS "cspdiuxX%"
 # define BUFFER_SIZE 100
 
+typedef int	(*t_callback_compare)(void *a, void *b);
+
 typedef enum e_bool
 {
 	f,
@@ -34,15 +36,17 @@ typedef enum e_bool
 typedef struct s_node
 {
 	void			*content;
+	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
 
 typedef struct s_list
 {
-	ssize_t	count;
-	ssize_t	data_size;
-	t_node	*head;
-	t_node	*tail;
+	ssize_t				count;
+	ssize_t				data_size;
+	t_node				*head;
+	t_node				*tail;
+	t_callback_compare	cmp;
 }	t_list;
 
 // ARRAY
@@ -64,6 +68,7 @@ size_t	ft_lstsize(t_list *lst);
 t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew_list(ssize_t data_size);
 t_node	*ft_lstfind_index(t_list *list, ssize_t index);
+t_node	*ft_lstfind_content(t_list *list, void *data);
 t_node	*ft_lstlast(t_list *list);
 t_node	*ft_lstnew_node(ssize_t data_size, void *content);
 void	*ft_lstget_data(t_list *list, ssize_t index);
@@ -76,6 +81,8 @@ void	ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+ssize_t	ft_sstcmp(const void *s1, const void *s2);
+size_t	ft_stcmp(const void *s1, const void *s2);
 void	**ft_freematrix(void **matrix, size_t count);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);

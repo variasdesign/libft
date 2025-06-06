@@ -12,6 +12,20 @@
 
 #include "libft.h"
 
+t_node	*ft_lstfind_content(t_list *list, void *data)
+{
+	t_node	*node;
+
+	node = list->head;
+	while (node->next != NULL)
+	{
+		if (list->cmp(node->content, data) == 0)
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
+}
+
 t_node	*ft_lstfind_index(t_list *list, ssize_t index)
 {
 	ssize_t	i;

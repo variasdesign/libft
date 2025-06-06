@@ -16,9 +16,19 @@ void	ft_lstadd_front(t_list *list, t_node *new_node)
 {
 	if (!list || !new_node)
 		return ;
-	if (list->head)
+	if (!list->head)
+	{
+		list->tail = new_node;
+		list->head = new_node;
 		new_node->next = list->head;
-	list->head = new_node;
+	}
+	else
+	{
+		new_node->next->prev = new_node;
+		new_node->next = list->head;
+		list->head = new_node;
+	}
+	new_node->prev = list->tail;
 	list->count++;
 }
 
@@ -30,12 +40,15 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 	{
 		list->head = new_node;
 		list->tail = new_node;
+		new_node->prev = list->tail;
 	}
 	else
 	{
 		list->tail->next = new_node;
+		new_node->prev = list->tail;
 		list->tail = new_node;
 	}
+	new_node->next = list->head;
 	list->count++;
 }
 
@@ -44,25 +57,19 @@ void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos)
 {
 	t_node	*node;
 
-	if (!list || !new_node || pos < 0)
+	if (!list || !new_node || pos < 0 || pos >= list->count)
 		return ;
-	if (!list->head)
-		list->head = new_node;
+	if (!list->head || pos == 0)
+		ft_lstadd_front(list, new_node);
+	else if (pos == list->count)
+		ft_lstadd_back(list, new_node);
 	else
 	{
-		node = list->head;
-		while (pos > 0)
-		{
-			if (node->next)
-				node = node->next;
-			else
-				break ;
-			pos--;
-		}
+		node = ft_lstfind_index(list, pos);
 		new_node->next = node->next;
+		new_node->prev = node;
+		new_node->next->prev = new_node;
 		node->next = new_node;
-		if (!new_node->next)
-			list->tail = new_node;
 	}
 	list->count++;
 }

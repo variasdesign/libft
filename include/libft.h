@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/06/16 19:35:04 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/06/16 20:36:56 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
 void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos);
 void	ft_lstdel_list(t_list *list, void (*del)(void *));
-void	ft_lstdel_node(t_node *node, void (*del)(void *));
+void	ft_lstdel_node(t_list *list, t_node *node, void (*del)(void *));
+void	ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos);
 void	ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY

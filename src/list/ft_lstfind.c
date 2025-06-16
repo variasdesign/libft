@@ -6,20 +6,20 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 18:40:18 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 19:15:20 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/06/16 19:33:21 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_node	*ft_lstfind_content(t_list *list, void *data)
+t_node	*ft_lstfind_content_int(t_list *list, void *data)
 {
 	t_node	*node;
 
 	node = list->head;
 	while (node->next != NULL)
 	{
-		if (*(ssize_t *)node->content == *(ssize_t *)data)
+		if (*(int *)node->content == *(int *)data)
 			return (node);
 		node = node->next;
 	}

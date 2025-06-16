@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/05/28 19:14:34 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/06/16 19:02:19 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	ft_bzero(void *s, size_t n);
 
 // NUMBER
 int		ft_abs(int n);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
 int		ft_atoi(const char *str);
 void	*ft_intset(void *b, int c, size_t len);
 

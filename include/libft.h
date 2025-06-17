@@ -69,13 +69,17 @@ t_node	*ft_lstfind_content_int(t_list *list, void *data, ssize_t offset);
 t_node	*ft_lstfind_index(t_list *list, ssize_t index);
 t_node	*ft_lstlast(t_list *list);
 t_node	*ft_lstnew_node(ssize_t data_size, void *content);
-void	*ft_lstget_data(t_list *list, ssize_t index);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
 void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos);
+void	ft_lstdel_between(t_list *list, t_node *node, void (*del)(void *));
+void	ft_lstdel_first(t_list *list, void (*del)(void *));
+void	ft_lstdel_last(t_list *list, void (*del)(void *));
 void	ft_lstdel_list(t_list *list, void (*del)(void *));
-void	ft_lstdel_node(t_list *list, t_node *node, void (*del)(void *));
+void	ft_lstdel_node(t_node *node, void (*del)(void *));
 void	ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos);
+void	ft_lstdel_wrapper(t_list *list, t_node *node, void (*del)(void *));
+void	*ft_lstget_data(t_list *list, ssize_t index);
 void	ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY

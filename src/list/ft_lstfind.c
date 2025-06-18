@@ -12,14 +12,15 @@
 
 #include "libft.h"
 
-t_node	*ft_lstfind_content_int(t_list *list, void *data, ssize_t offset)
+t_node	*ft_lstfind_content_int(t_list *list, t_node *offset, void *data)
 {
 	t_node	*node;
 
-	node = list->head;
-	if (offset > -1)
-		node = ft_lstfind_index(list, offset);
-	while (node->next != NULL)
+	if (!offset)
+		node = list->head;
+	else
+	 	node = offset;
+	while (node)
 	{
 		if (*(int *)node->content == *(int *)data)
 			return (node);
@@ -37,7 +38,7 @@ ssize_t ft_lstfind_pos(t_list *list, t_node *node_to_find)
 		return (-1);
 	i = 0;
 	node = list->head;
-	while (node != node_to_find || !(i < list->count))
+	while (node != node_to_find)
 	{
 		i++;
 		node = node->next;

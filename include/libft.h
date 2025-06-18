@@ -65,7 +65,7 @@ size_t	ft_lstsize(t_list *lst);
 ssize_t	ft_lstfind_pos(t_list *list, t_node *node_to_find);
 t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew_list(ssize_t data_size);
-t_node	*ft_lstfind_content_int(t_list *list, void *data, ssize_t offset);
+t_node	*ft_lstfind_content_int(t_list *list, t_node *offset, void *data);
 t_node	*ft_lstfind_index(t_list *list, ssize_t index);
 t_node	*ft_lstlast(t_list *list);
 t_node	*ft_lstnew_node(ssize_t data_size, void *content);

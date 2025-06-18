@@ -80,7 +80,8 @@ void	ft_lstdel_list(t_list *list, void (*del)(void *));
 void	ft_lstdel_node(t_node *node, void (*del)(void *));
 void	ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos);
 void	ft_lstdel_wrapper(t_list *list, t_node *node, void (*del)(void *));
-void	*ft_lstget_data(t_list *list, ssize_t index);
+void	*ft_lstget_data_index(t_list *list, ssize_t index);
+void	*ft_lstget_data_node(t_node *node);
 void	ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY

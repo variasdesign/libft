@@ -12,11 +12,18 @@
 
 #include "libft.h"
 
-void	*ft_lstget_data(t_list *list, ssize_t index)
+void	*ft_lstget_data_index(t_list *list, ssize_t index)
 {
 	t_node	*node;
 
-	node = ft_lstfind_index(list, index);
+	node = ft_lstfind_node(list, index);
+	if (node)
+		return (node->content);
+	return (NULL);
+}
+
+void	*ft_lstget_data_node(t_node *node)
+{
 	if (node)
 		return (node->content);
 	return (NULL);

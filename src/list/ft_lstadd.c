@@ -82,7 +82,7 @@ void	ft_lstadd_insert_pos(t_list *list, t_node *new_node, ssize_t pos)
 		ft_lstadd_back(list, new_node);
 	else
 	{
-		node = ft_lstfind_index(list, pos);
+		node = ft_lstfind_node(list, pos);
 		new_node->next = node->next;
 		new_node->prev = node;
 		new_node->next->prev = new_node;

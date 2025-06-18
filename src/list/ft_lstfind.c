@@ -29,7 +29,7 @@ t_node	*ft_lstfind_content_int(t_list *list, t_node *offset, void *data)
 	return (NULL);
 }
 
-ssize_t ft_lstfind_pos(t_list *list, t_node *node_to_find)
+ssize_t ft_lstfind_index(t_list *list, t_node *node_to_find)
 {
 	ssize_t	i;
 	t_node	*node;
@@ -48,7 +48,7 @@ ssize_t ft_lstfind_pos(t_list *list, t_node *node_to_find)
 	return (-1);
 }
 
-t_node	*ft_lstfind_index(t_list *list, ssize_t index)
+t_node	*ft_lstfind_node(t_list *list, ssize_t index)
 {
 	ssize_t	i;
 	t_node	*node;

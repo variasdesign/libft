@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-void	ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos)
+void	ft_lstdel_index(t_list *list, void (*del)(void *), ssize_t pos)
 {
 	if (pos > list->count)
 		return ;
-	ft_lstdel_wrapper(list, ft_lstfind_index(list, pos), del);
+	ft_lstdel_wrapper(list, ft_lstfind_node(list, pos), del);
 }
 
 void	ft_lstdel_list(t_list *list, void (*del)(void *))

@@ -6,48 +6,66 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:13:13 by varias-c          #+#    #+#             */
-/*   Updated: 2025/06/16 20:42:01 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/06/17 19:21:18 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos)
+void	ft_lstdel_wrapper(t_list *list, t_node *node, void (*del)(void *))
 {
-	if (pos > list->count)
-		return ;
-	ft_lstdel_node(list, ft_lstfind_index(list, pos), del);
+	if (node == list->head)
+		ft_lstdel_first(list, del);
+	else if (node == list->tail)
+		ft_lstdel_last(list, del);
+	else
+		ft_lstdel_between(list, node, del);
 }
 
-void	ft_lstdel_node(t_list *list, t_node *node, void (*del)(void *))
+void	ft_lstdel_between(t_list *list, t_node *node, void (*del)(void *))
+{
+	t_node	*tmp;
+
+	tmp = node;
+	if (node)
+	{
+		tmp->prev->next = tmp->next;
+		tmp->next->prev = tmp->prev;
+		ft_lstdel_node(list->head, del);
+		list->count--;
+	}
+}
+
+void	ft_lstdel_first(t_list *list, void (*del)(void *))
+{
+	t_node	*tmp;
+
+	if (list->head)
+	{
+		tmp = list->head->next;
+		ft_lstdel_node(list->head, del);
+		list->head = tmp;
+		list->count--;
+	}
+}
+
+void	ft_lstdel_last(t_list *list, void (*del)(void *))
+{
+	t_node	*tmp;
+
+	if (list->tail)
+	{
+		tmp = list->tail->prev;
+		ft_lstdel_node(list->head, del);
+		list->tail = tmp;
+		list->count--;
+	}
+}
+
+void	ft_lstdel_node(t_node *node, void (*del)(void *))
 {
 	if (!node || !del)
 		return ;
-	if (node->next)
-		node->next->prev = node->prev;
-	else if (node->prev)
-		node->prev->next = node->next;
-	if (list->head == node)
-		list->head = node->next;
-	if (list->tail == node)
-		list->tail = node->prev;
 	del(node->content);
 	free(node);
-	list->count--;
-}
-
-void	ft_lstdel_list(t_list *list, void (*del)(void *))
-{
-	t_node	*node;
-
-	if (!list || !list->head || !del)
-		return ;
-	node = list->head;
-	while (node)
-	{
-		list->head = node->next;
-		ft_lstdel_node(list, node, del);
-		node = list->head;
-	}
-	free(list);
 }

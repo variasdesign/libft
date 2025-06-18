@@ -52,16 +52,33 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 	list->count++;
 }
 
-// Insert after
-void	ft_lstadd_insert(t_list *list, t_node *new_node, ssize_t pos)
+void	ft_lstadd_insert(t_list *list, t_node *new_node, t_node* node)
+{
+	if (!list || !new_node || !node)
+		return ;
+	if (!list->head)
+		ft_lstadd_front(list, new_node);
+	else if (node == list->tail)
+		ft_lstadd_back(list, new_node);
+	else
+	{
+		new_node->next = node->next;
+		new_node->prev = node;
+		new_node->next->prev = new_node;
+		node->next = new_node;
+	}
+	list->count++;
+}
+
+void	ft_lstadd_insert_pos(t_list *list, t_node *new_node, ssize_t pos)
 {
 	t_node	*node;
 
 	if (!list || !new_node || pos < 0 || pos >= list->count)
 		return ;
-	if (!list->head || pos == 0)
+	if (!list->head)
 		ft_lstadd_front(list, new_node);
-	else if (pos == list->count)
+	else if (pos + 1 == list->count)
 		ft_lstadd_back(list, new_node);
 	else
 	{

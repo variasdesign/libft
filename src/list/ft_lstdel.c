@@ -31,7 +31,7 @@ void	ft_lstdel_between(t_list *list, t_node *node, void (*del)(void *))
 	{
 		tmp->prev->next = tmp->next;
 		tmp->next->prev = tmp->prev;
-		ft_lstdel_node(list->head, del);
+		ft_lstdel_node(node, del);
 		list->count--;
 	}
 }
@@ -56,7 +56,7 @@ void	ft_lstdel_last(t_list *list, void (*del)(void *))
 	if (list->tail)
 	{
 		tmp = list->tail->prev;
-		ft_lstdel_node(list->head, del);
+		ft_lstdel_node(list->tail, del);
 		list->tail = tmp;
 		list->count--;
 	}

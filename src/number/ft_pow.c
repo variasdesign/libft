@@ -22,7 +22,7 @@ float	ft_pow_float(float base, float exp)
 	return (num);
 }
 
-int	ft_pow_int(float base, float exp)
+int	ft_pow_int(int base, int exp)
 {
 	long	num;
 

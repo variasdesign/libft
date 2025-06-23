@@ -102,7 +102,7 @@ int		ft_abs(int n);
 int		ft_atoi(const char *str);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
-int		ft_pow_int(float base, float exp);
+int		ft_pow_int(int base, int exp);
 void	*ft_intset(void *b, int c, size_t len);
 
 // PRINT

@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/06/16 20:36:56 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/06/23 22:38:38 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_node	*ft_lstnew_node(ssize_t data_size, void *content);
 void	ft_lstadd_back(t_list *list, t_node *new_node);
 void	ft_lstadd_front(t_list *list, t_node *new_node);
 void	ft_lstadd_insert_pos(t_list *list, t_node *new_node, ssize_t pos);
-void	ft_lstadd_insert(t_list *list, t_node *new_node, t_node* node);
+void	ft_lstadd_insert(t_list *list, t_node *new_node, t_node *node);
 void	ft_lstdel_between(t_list *list, t_node *node, void (*del)(void *));
 void	ft_lstdel_first(t_list *list, void (*del)(void *));
 void	ft_lstdel_last(t_list *list, void (*del)(void *));
@@ -97,10 +97,12 @@ void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 
 // NUMBER
+float	ft_pow_float(float base, float exp);
 int		ft_abs(int n);
+int		ft_atoi(const char *str);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
-int		ft_atoi(const char *str);
+int		ft_pow_int(float base, float exp);
 void	*ft_intset(void *b, int c, size_t len);
 
 // PRINT

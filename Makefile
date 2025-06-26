@@ -1,89 +1,147 @@
-SRCS	=	array/ft_arrlen.c \
-			char/ft_isalnum.c \
-			char/ft_isalpha.c \
-			char/ft_isascii.c \
-			char/ft_isdigit.c \
-			char/ft_isprint.c \
-			char/ft_isspace.c \
-			char/ft_tolower.c \
-			char/ft_toupper.c \
-			memory/ft_bzero.c \
-			memory/ft_calloc.c \
-			memory/ft_freematrix.c \
-			memory/ft_memchr.c \
-			memory/ft_memcmp.c \
-			memory/ft_memcpy.c \
-			memory/ft_memmove.c \
-			memory/ft_memset.c \
-			number/ft_abs.c \
-			number/ft_atoi.c \
-			number/ft_intset.c \
-			print/ft_printf.c \
-			print/ft_printf_aux.c \
-			print/ft_putchar_fd.c \
-			print/ft_putendl_fd.c \
-			print/ft_putnbr_fd.c \
-			print/ft_putstr_fd.c \
-			read/get_next_line.c \
-			string/ft_itoa.c \
-			string/ft_split.c \
-			string/ft_strchr.c \
-			string/ft_strdup.c \
-			string/ft_striteri.c \
-			string/ft_strjoin.c \
-			string/ft_strlcat.c \
-			string/ft_strlcpy.c \
-			string/ft_strlen.c \
-			string/ft_strmapi.c \
-			string/ft_strncmp.c \
-			string/ft_strnstr.c \
-			string/ft_strrchr.c \
-			string/ft_strtrim.c \
-			string/ft_substr.c
-
-SRCS_BONUS	=	list/ft_lstadd.c \
-				list/ft_lstclear.c \
-				list/ft_lstdel_one.c \
-				list/ft_lstfind.c \
-				list/ft_lstget.c \
-				list/ft_lstiter.c \
-				list/ft_lstlast.c \
-				list/ft_lstmap.c \
-				list/ft_lstnew.c \
-				list/ft_lstsize.c \
-				${SRCS}
-
 NAME = libft.a
 
-SRC_DIR := src
+CC				= clang
+CFLAGS			= -Wextra -Wall -Werror
+CFLAGS			+= -std=c99
+CFLAGS			+= -ggdb3
+# CFLAGS			+= -fsanitize=address
+RM				= rm -rf
 
-OBJ := $(SRCS:.c=.o)
+BASE_DIR		= ./src
+BUILD_DIR		= ./.build
 
-OBJ_BONUS = $(SRCS_BONUS:.c=.o)
-OBJ_BONUS_PREFIXED = $(addprefix $(OBJ_DIR), $(OBJ_BONUS))
+HEADERS			= -I ./include
 
-CC = clang
+ARRAY_DIR		= $(BASE_DIR)/array/
+CHAR_DIR		= $(BASE_DIR)/char/
+LIST_DIR		= $(BASE_DIR)/list/
+MEM_DIR			= $(BASE_DIR)/memory/
+NUM_DIR			= $(BASE_DIR)/number/
+PRINT_DIR		= $(BASE_DIR)/print/
+READ_DIR		= $(BASE_DIR)/read/
+STR_DIR			= $(BASE_DIR)/string/
 
-CC_FLAGS = -Wall -Wextra -Werror -Iinclude
+ARRAY_SRCS		= $(addprefix $(ARRAY_DIR),	\
+					ft_arrlen.c			\
+					)
 
-%.o : $(SRC_DIR)/%.c
-	@echo "Compiling: $<"
-	@$(CC) $(CC_FLAGS) -c $< -o $@
+CHAR_SRCS		= $(addprefix $(CHAR_DIR),		\
+					ft_isalnum.c				\
+					ft_isalpha.c				\
+					ft_isascii.c				\
+					ft_isdigit.c				\
+					ft_isprint.c				\
+					ft_isspace.c				\
+					ft_tolower.c				\
+					ft_toupper.c				\
+					)
+					
+MEM_SRCS		= $(addprefix $(MEM_DIR),		\
+					ft_bzero.c					\
+					ft_calloc.c					\
+					ft_freematrix.c				\
+					ft_memchr.c					\
+					ft_memcmp.c					\
+					ft_memcpy.c					\
+					ft_memmove.c				\
+					ft_memset.c					\
+					)
 
-$(NAME): $(OBJ)
-	@ar r $(NAME) $(OBJ)
-	@echo "libft done!"
+NUM_SRCS		= $(addprefix $(NUM_DIR),		\
+					ft_abs.c					\
+					ft_atoi.c					\
+					ft_intset.c					\
+					)
+
+PRINT_SRCS		= $(addprefix $(PRINT_DIR),		\
+					ft_printf.c					\
+					ft_printf_aux.c				\
+					ft_putchar_fd.c				\
+					ft_putendl_fd.c				\
+					ft_putnbr_fd.c				\
+					ft_putstr_fd.c				\
+					)
+
+READ_SRCS		= $(addprefix $(READ_DIR),		\
+					get_next_line.c				\
+					)
+
+STR_SRCS		= $(addprefix $(STR_DIR),		\
+					ft_itoa.c					\
+					ft_split.c					\
+					ft_strchr.c					\
+					ft_strdup.c					\
+					ft_striteri.c				\
+					ft_strjoin.c				\
+					ft_strlcat.c				\
+					ft_strlcpy.c				\
+					ft_strlen.c					\
+					ft_strmapi.c				\
+					ft_strncmp.c				\
+					ft_strnstr.c				\
+					ft_strrchr.c				\
+					ft_strtrim.c				\
+					ft_substr.c					\
+					)
+
+BASE_SRCS		=	$(ARRAY_SRCS)	\
+					$(CHAR_SRCS)	\
+					$(LIST_SRCS)	\
+					$(MEM_SRCS)		\
+					$(NUM_SRCS)		\
+					$(PRINT_SRCS)	\
+					$(READ_SRCS)	\
+					$(STR_SRCS)
+
+LIST_SRCS		=	$(addprefix $(LIST_DIR),	\
+					ft_lstadd.c					\
+					ft_lstdel.c					\
+					ft_lstdel_2.c				\
+					ft_lstfind.c				\
+					ft_lstget.c					\
+					ft_lstiter.c				\
+					ft_lstlast.c				\
+					ft_lstmap.c					\
+					ft_lstnew.c					\
+					ft_lstsize.c				\
+					)							\
+
+BONUS_SRCS		= 	$(LIST_SRCS)	\
+					$(BASE_SRCS)
+
+
+
+BASE_OBJS		= $(BASE_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
+BONUS_OBJS		= $(BONUS_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 all: $(NAME)
 
+$(NAME): $(BASE_OBJS)
+	@echo "Assembling library..."
+	@ar r $(NAME) $(BASE_OBJS)
+	@echo "Done! :D"
+
+bonus: $(BONUS_OBJS)
+	@echo "Assembling library with bonus..."
+	@ar r $(NAME) $(BONUS_OBJS)
+	@echo "libft bonus done!"
+
+$(BUILD_DIR)/%.o: $(BASE_DIR)/%.c
+	@echo "Compiling $@..."
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< $(HEADERS) -o $@
+
 clean:
-	rm -rf $(OBJ)
+	@echo "Cleaning objects..."
+	@$(RM) $(BASE_OBJS) $(BONUS_OBJS) $(BASE_TARGET) $(BONUS_TARGET)
+	@echo "Done! :D"
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Cleaning all..."
+	@$(RM) $(BUILD_DIR)
+	@$(RM) $(NAME)
+	@echo "Done! :D"
 
 re: fclean all
 
-bonus: $(OBJ_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJ_BONUS_PREFIXED)
-	@echo "libft bonus done!"
+.PHONY: all clean fclean re

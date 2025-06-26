@@ -51,6 +51,9 @@ NUM_SRCS		= $(addprefix $(NUM_DIR),		\
 					ft_abs.c					\
 					ft_atoi.c					\
 					ft_intset.c					\
+					ft_max.c					\
+					ft_min.c					\
+					ft_pow.c					\
 					)
 
 PRINT_SRCS		= $(addprefix $(PRINT_DIR),		\

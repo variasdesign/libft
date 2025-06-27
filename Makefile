@@ -1,16 +1,16 @@
 NAME = libft.a
 
+AR				= ar crs
 CC				= clang
-CFLAGS			= -Wextra -Wall -Werror
+CFLAGS			= -Wextra -Wall -Werror -I include
 CFLAGS			+= -std=c99
 CFLAGS			+= -ggdb3
 # CFLAGS			+= -fsanitize=address
 RM				= rm -rf
 
+HEADERS			= ./include/libft.h
 BASE_DIR		= ./src
 BUILD_DIR		= ./.build
-
-HEADERS			= -I ./include
 
 ARRAY_DIR		= $(BASE_DIR)/array/
 CHAR_DIR		= $(BASE_DIR)/char/
@@ -109,34 +109,23 @@ LIST_SRCS		=	$(addprefix $(LIST_DIR),	\
 					ft_lstsize.c				\
 					)							\
 
-BONUS_SRCS		= 	$(LIST_SRCS)	\
-					$(BASE_SRCS)
-
-
-
 BASE_OBJS		= $(BASE_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
-BONUS_OBJS		= $(BONUS_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(BASE_OBJS)
 	@echo "Assembling library..."
-	@ar r $(NAME) $(BASE_OBJS)
+	@$(AR) $@ $^
 	@echo "Done! :D"
 
-bonus: $(BONUS_OBJS)
-	@echo "Assembling library with bonus..."
-	@ar r $(NAME) $(BONUS_OBJS)
-	@echo "libft bonus done!"
-
-$(BUILD_DIR)/%.o: $(BASE_DIR)/%.c
-	@echo "Compiling $@..."
+$(BUILD_DIR)/%.o: $(BASE_DIR)/%.c $(HEADER)
+	@echo "Compiling $<..."
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< $(HEADERS) -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "Cleaning objects..."
-	@$(RM) $(BASE_OBJS) $(BONUS_OBJS) $(BASE_TARGET) $(BONUS_TARGET)
+	@$(RM) $(BASE_OBJS)
 	@echo "Done! :D"
 
 fclean: clean

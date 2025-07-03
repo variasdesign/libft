@@ -106,7 +106,7 @@ int		ft_pow_int(int base, int exp);
 void	*ft_intset(void *b, int c, size_t len);
 
 // PRINT
-int		ft_printf(const char *fmt, ...);
+int		ft_printf(int fd, const char *fmt, ...);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd, char *base, t_bool sign);

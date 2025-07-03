@@ -52,7 +52,7 @@ void	ft_lstadd_back(t_list *list, t_node *new_node)
 	list->count++;
 }
 
-void	ft_lstadd_insert(t_list *list, t_node *new_node, t_node* node)
+void	ft_lstadd_insert(t_list *list, t_node *new_node, t_node *node)
 {
 	if (!list || !new_node || !node)
 		return ;

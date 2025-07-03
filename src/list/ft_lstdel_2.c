@@ -21,7 +21,7 @@ void	ft_lstdel_index(t_list *list, void (*del)(void *), ssize_t pos)
 
 void	ft_lstdel_list(t_list *list, void (*del)(void *))
 {
-	if (!list || !list->head || !del)
+	if (!list || !del)
 		return ;
 	while (list->head)
 		ft_lstdel_first(list, del);

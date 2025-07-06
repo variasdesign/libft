@@ -24,6 +24,6 @@ void	**ft_freematrix(void **matrix, const size_t count)
 		free((void *)matrix[i]);
 		i++;
 	}
-	free((void *)matrix);
+	free(matrix);
 	return (NULL);
 }

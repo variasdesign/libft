@@ -61,7 +61,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	split_str = ft_calloc(count + 1, sizeof(char *));
 	if (!split_str)
-		return ((char **)ft_freematrix((void **)split_str, count));
+		return ((char **)ft_freematrix((void **)split_str));
 	word_i = -1;
 	char_i = 0;
 	while (++word_i < count)
@@ -71,7 +71,7 @@ char	**ft_split(const char *s, char c)
 		word_len = calculate_word_index(s, char_i, c);
 		split_str[word_i] = ft_substr(s, char_i, word_len);
 		if (!split_str[word_i])
-			return ((char **)ft_freematrix((void **)split_str, count));
+			return ((char **)ft_freematrix((void **)split_str));
 		char_i = char_i + word_len;
 	}
 	return (split_str);

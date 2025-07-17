@@ -12,9 +12,10 @@
 
 #include "libft.h"
 
-void	**ft_freematrix(void **matrix, const size_t count)
+void	**ft_freematrix(void **matrix)
 {
-	size_t	i;
+	const	size_t	count = ft_arrlen(matrix);
+	size_t			i;
 
 	if (!matrix)
 		return (NULL);

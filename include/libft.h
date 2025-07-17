@@ -88,7 +88,7 @@ void	ft_lstiter(t_list *list, void (*f)(void *));
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 ssize_t	ft_sstcmp(const void *s1, const void *s2);
 size_t	ft_stcmp(const void *s1, const void *s2);
-void	**ft_freematrix(void **matrix, size_t count);
+void	**ft_freematrix(void **matrix);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

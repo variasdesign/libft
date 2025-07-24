@@ -14,7 +14,7 @@
 
 void	**ft_freematrix(void **matrix)
 {
-	const	size_t	count = ft_arrlen(matrix);
+	const size_t	count = ft_arrlen(matrix);
 	size_t			i;
 
 	if (!matrix)

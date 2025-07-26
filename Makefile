@@ -57,6 +57,7 @@ NUM_SRCS		= $(addprefix $(NUM_DIR),		\
 					)
 
 PRINT_SRCS		= $(addprefix $(PRINT_DIR),		\
+					ft_print_error.c			\
 					ft_printf.c					\
 					ft_printf_aux.c				\
 					ft_putchar_fd.c				\

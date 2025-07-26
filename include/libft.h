@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/06/23 22:38:38 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/07/26 17:21:36 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int		ft_pow_int(int base, int exp);
 void	*ft_intset(void *b, int c, size_t len);
 
 // PRINT
+void	ft_print_error(char *msg, char *err, int exit_code);
 int		ft_printf(int fd, const char *fmt, ...);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);

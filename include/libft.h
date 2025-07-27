@@ -97,6 +97,7 @@ void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 
 // NUMBER
+double	ft_atof(const char *str);
 float	ft_pow_float(float base, float exp);
 int		ft_abs(int n);
 int		ft_atoi(const char *str);
@@ -106,13 +107,13 @@ int		ft_pow_int(int base, int exp);
 void	*ft_intset(void *b, int c, size_t len);
 
 // PRINT
-void	ft_print_error(char *msg, char *err, int exit_code);
 int		ft_printf(int fd, const char *fmt, ...);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putnbr_fd(int n, int fd, char *base, t_bool sign);
 size_t	ft_putstr_fd(char *s, int fd);
 t_bool	check_specifiers(const char *s);
+void	ft_print_error(char *msg, char *err, int exit_code);
 
 // READ
 char	*append_buffer_to_line(char *line, char *remaining_chars, size_t len);

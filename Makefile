@@ -50,6 +50,7 @@ MEM_SRCS		= $(addprefix $(MEM_DIR),		\
 NUM_SRCS		= $(addprefix $(NUM_DIR),		\
 					ft_abs.c					\
 					ft_atoi.c					\
+					ft_atof.c					\
 					ft_intset.c					\
 					ft_max.c					\
 					ft_min.c					\

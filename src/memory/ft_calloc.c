@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:27:53 by varias-c          #+#    #+#             */
-/*   Updated: 2024/10/23 18:27:53 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/09/30 18:46:14 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*tmp_ptr;
-	size_t			i;
+	unsigned char	*ptr;
 
-	i = 0;
-	tmp_ptr = malloc(count * size);
-	if (!tmp_ptr)
+	ptr = malloc(count * size);
+	if (!ptr)
 		return (NULL);
-	while (i < count * size)
-		tmp_ptr[i++] = 0;
-	return (tmp_ptr);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

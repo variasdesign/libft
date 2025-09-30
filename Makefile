@@ -131,7 +131,7 @@ clean:
 	@echo "Done! :D"
 
 fclean: clean
-	@echo "Cleaning all..."
+	@echo "Cleaning all libft files..."
 	@$(RM) $(BUILD_DIR)
 	@$(RM) $(NAME)
 	@echo "Done! :D"

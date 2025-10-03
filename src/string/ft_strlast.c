@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:36:29 by varias-c          #+#    #+#             */
-/*   Updated: 2025/10/03 17:44:09 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/03 18:43:21 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ char	*ft_strlast(char *s)
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
-	return(s + len);
+	return (s + len);
 }

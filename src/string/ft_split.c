@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:23:18 by varias-c          #+#    #+#             */
-/*   Updated: 2025/04/20 13:19:08 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/03 17:59:45 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	split_str = ft_calloc(count + 1, sizeof(char *));
 	if (!split_str)
-		return ((char **)ft_freematrix((void **)split_str));
+		return (NULL);
 	word_i = -1;
 	char_i = 0;
 	while (++word_i < count)

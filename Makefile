@@ -78,6 +78,7 @@ STR_SRCS		= $(addprefix $(STR_DIR),		\
 					ft_strdup.c					\
 					ft_striteri.c				\
 					ft_strjoin.c				\
+					ft_strlast.c				\
 					ft_strlcat.c				\
 					ft_strlcpy.c				\
 					ft_strlen.c					\

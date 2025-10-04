@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 18:43:18 by varias-c          #+#    #+#             */
-/*   Updated: 2024/10/23 18:52:34 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/04 13:08:32 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s1)
 	if (!s2)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (s1 && s1[i])
 	{
 		s2[i] = s1[i];
 		i++;

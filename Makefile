@@ -118,9 +118,9 @@ BASE_OBJS		= $(BASE_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(BASE_OBJS)
-	@echo "Assembling libft..."
+	@echo -n "Assembling libft... "
 	@$(AR) $@ $^
-	@echo "Done! :D"
+	@echo "✅"
 
 $(BUILD_DIR)/%.o: $(BASE_DIR)/%.c $(HEADER)
 	@echo "Compiling $<..."
@@ -128,15 +128,15 @@ $(BUILD_DIR)/%.o: $(BASE_DIR)/%.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "Cleaning libft objects..."
+	@echo -n "Cleaning libft objects... "
 	@$(RM) $(BASE_OBJS)
-	@echo "Done! :D"
+	@echo "✅"
 
 fclean: clean
-	@echo "Cleaning all libft files..."
+	@echo -n "Cleaning all libft files... "
 	@$(RM) $(BUILD_DIR)
 	@$(RM) $(NAME)
-	@echo "Done! :D"
+	@echo "✅"
 
 re: fclean all
 

@@ -31,6 +31,15 @@ typedef enum e_bool
 	t
 }	t_bool;
 
+// STRING TABLE STRUCTS
+typedef struct s_str_tab
+{
+	char	**start;
+	char	**end;
+	ssize_t	count;
+}	t_str_tab;
+
+// LIST STRUCTS
 typedef struct s_node
 {
 	void			*content;

@@ -21,8 +21,8 @@ PRINT_DIR		= $(BASE_DIR)/print/
 READ_DIR		= $(BASE_DIR)/read/
 STR_DIR			= $(BASE_DIR)/string/
 
-ARRAY_SRCS		= $(addprefix $(ARRAY_DIR),	\
-					ft_arrlen.c			\
+ARRAY_SRCS		= $(addprefix $(ARRAY_DIR),		\
+					ft_arrlen.c					\
 					)
 
 CHAR_SRCS		= $(addprefix $(CHAR_DIR),		\
@@ -91,15 +91,6 @@ STR_SRCS		= $(addprefix $(STR_DIR),		\
 					ft_substr.c					\
 					)
 
-BASE_SRCS		=	$(ARRAY_SRCS)	\
-					$(CHAR_SRCS)	\
-					$(LIST_SRCS)	\
-					$(MEM_SRCS)		\
-					$(NUM_SRCS)		\
-					$(PRINT_SRCS)	\
-					$(READ_SRCS)	\
-					$(STR_SRCS)
-
 LIST_SRCS		=	$(addprefix $(LIST_DIR),	\
 					ft_lstadd.c					\
 					ft_lstdel.c					\
@@ -112,6 +103,15 @@ LIST_SRCS		=	$(addprefix $(LIST_DIR),	\
 					ft_lstnew.c					\
 					ft_lstsize.c				\
 					)							\
+
+BASE_SRCS		=	$(ARRAY_SRCS)	\
+					$(CHAR_SRCS)	\
+					$(LIST_SRCS)	\
+					$(MEM_SRCS)		\
+					$(NUM_SRCS)		\
+					$(PRINT_SRCS)	\
+					$(READ_SRCS)	\
+					$(STR_SRCS)
 
 BASE_OBJS		= $(BASE_SRCS:$(BASE_DIR)/%.c=$(BUILD_DIR)/%.o)
 

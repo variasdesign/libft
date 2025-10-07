@@ -21,17 +21,29 @@ ssize_t	ft_inptrtab(void *ptr, t_ptr_tab tab)
 	i = 0;
 	while (i < tab.count && tab.start[i] && tab.end[i])
 	{
-		if (ptr > tab.start[i] && ptr < tab.end[i])
+		if (ptr >= tab.start[i] && ptr <= tab.end[i])
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-void	ft_alloptrtab(t_ptr_tab *tab, char *orig, size_t size)
+t_ptr_tab	*ft_alloptrtab(t_ptr_tab *tab, char *orig, size_t size)
 {
 	tab->orig = orig;
 	tab->read = orig;
 	tab->start = ft_calloc(tab->count + 1, size);
+	if (!tab->start)
+	{
+		free (tab);
+		return (NULL);
+	}
 	tab->end = ft_calloc(tab->count + 1, size);
+	if (!tab->end)
+	{
+		free (tab->start);
+		free (tab);
+		return (NULL);
+	}
+	return (tab);
 }

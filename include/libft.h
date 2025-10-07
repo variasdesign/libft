@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/10/03 19:18:47 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/06 19:40:37 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,15 @@ typedef enum e_bool
 	t
 }	t_bool;
 
-// STRING TABLE STRUCTS
-typedef struct s_str_tab
+// POINTER TABLE STRUCTS
+typedef struct s_ptr_tab
 {
-	char	**start;
-	char	**end;
 	ssize_t	count;
-}	t_str_tab;
+	void	*orig;
+	void	*read;
+	void	**start;
+	void	**end;
+}	t_ptr_tab;
 
 // LIST STRUCTS
 typedef struct s_node
@@ -96,6 +98,7 @@ void	ft_lstiter(t_list *list, void (*f)(void *));
 // MEMORY
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 ssize_t	ft_sstcmp(const void *s1, const void *s2);
+ssize_t	ft_inptrtab(void *ptr, t_ptr_tab sq_t);
 size_t	ft_stcmp(const void *s1, const void *s2);
 void	**ft_freematrix(void **matrix);
 void	*ft_calloc(size_t count, size_t size);
@@ -103,6 +106,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+void	ft_alloptrtab(t_ptr_tab *ptr_tab, char *orig, size_t size);
 void	ft_bzero(void *s, size_t n);
 
 // NUMBER

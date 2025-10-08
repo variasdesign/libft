@@ -21,7 +21,7 @@ ssize_t	ft_inptrtab(void *ptr, t_ptr_tab tab)
 	i = 0;
 	while (i < tab.count && tab.start[i] && tab.end[i])
 	{
-		if (ptr >= tab.start[i] && ptr <= tab.end[i])
+		if (ptr >= tab.start[i] && ptr < tab.end[i])
 			return (i);
 		i++;
 	}

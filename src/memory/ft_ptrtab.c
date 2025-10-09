@@ -28,32 +28,27 @@ ssize_t	ft_tabfind(void *ptr, t_ptr_tab tab)
 	return (-1);
 }
 
-// TODO: Needs some rethinking. It needs to nullify the tail end, right now
-// it's duplicating it.
+void	ft_tabmovebackall (ssize_t i, t_ptr_tab *tab)
+{
+	while (tab->start[i++])
+	{
+		tab->end[i - 1] = tab->start[i] + (tab->start[i] != NULL);
+		tab->start[i] = tab->end[i] - (tab->end[i] != NULL);
+	}
+	tab->count -= !tab->start[tab->count - 1];
+}
+
 void	*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab)
 {
-	ssize_t	j;
-
-	j = i;
-	tab->count--;
 	if (!start_or_end)
 	{
-		tab->start[j] = tab->end[j] - 1;
-		while (tab->start[++j])
-		{
-			tab->end[j - 1] = tab->start[j] + 1;
-			tab->start[j] = tab->end[j] - (tab->end[j] != 0);
-		}
-		
+		tab->start[i] = tab->end[i] - 1;
+		ft_tabmovebackall(i, tab);
 		return (tab->start[i]);
 	}
 	else
 	{
-		while (tab->start[++j])
-		{
-			tab->end[j - 1] = tab->start[j] + 1;
-			tab->start[j] = tab->end[j] - (tab->end[j] != 0);
-		}
+		ft_tabmovebackall(i, tab);
 		return (tab->end[i]);
 	}
 }

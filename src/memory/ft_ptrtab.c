@@ -53,6 +53,17 @@ void	*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab)
 	}
 }
 
+t_ptr_tab	*ft_tabfree(t_ptr_tab *tab)
+{
+	ft_freematrix(tab->start);
+	tab->start = NULL;
+	ft_freematrix(tab->end);
+	tab->end = NULL;
+	free(tab);
+	tab = NULL;
+	return (tab);
+}
+
 t_ptr_tab	*ft_taballoc(t_ptr_tab *tab, char *orig, size_t size)
 {
 	tab->orig = orig;

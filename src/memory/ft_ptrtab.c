@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 19:26:23 by varias-c          #+#    #+#             */
-/*   Updated: 2025/10/08 20:47:22 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/13 12:33:57 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,33 +53,9 @@ void	*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab)
 	}
 }
 
-t_ptr_tab	*ft_tabfree(t_ptr_tab *tab)
+ssize_t	ft_tabptrlen(ssize_t i, t_ptr_tab tab)
 {
-	ft_freematrix(tab->start);
-	tab->start = NULL;
-	ft_freematrix(tab->end);
-	tab->end = NULL;
-	free(tab);
-	tab = NULL;
-	return (tab);
-}
-
-t_ptr_tab	*ft_taballoc(t_ptr_tab *tab, char *orig, size_t size)
-{
-	tab->orig = orig;
-	tab->read = orig;
-	tab->start = ft_calloc(tab->count + 1, size);
-	if (!tab->start)
-	{
-		free (tab);
-		return (NULL);
-	}
-	tab->end = ft_calloc(tab->count + 1, size);
-	if (!tab->end)
-	{
-		free (tab->start);
-		free (tab);
-		return (NULL);
-	}
-	return (tab);
+	if (tab.start[i] && tab.end[i])
+		return (tab.end[i] - tab.start[i]);
+	return (-1);
 }

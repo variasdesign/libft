@@ -34,6 +34,7 @@ typedef enum e_bool
 // POINTER TABLE STRUCTS
 typedef struct s_ptr_tab
 {
+	size_t	size;
 	ssize_t	count;
 	void	*orig;
 	void	*read;

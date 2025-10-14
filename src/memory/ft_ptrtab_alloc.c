@@ -25,15 +25,16 @@ t_ptr_tab	*ft_tabfree(t_ptr_tab *tab)
 
 t_ptr_tab	*ft_taballoc(t_ptr_tab *tab, char *orig, size_t size)
 {
+	tab->size = size;
 	tab->orig = orig;
 	tab->read = orig;
-	tab->start = ft_calloc(tab->count + 1, size);
+	tab->start = ft_calloc(tab->count + 1, tab->size);
 	if (!tab->start)
 	{
 		free (tab);
 		return (NULL);
 	}
-	tab->end = ft_calloc(tab->count + 1, size);
+	tab->end = ft_calloc(tab->count + 1, tab->size);
 	if (!tab->end)
 	{
 		free (tab->start);

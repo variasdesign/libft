@@ -46,6 +46,7 @@ MEM_SRCS		= $(addprefix $(MEM_DIR),		\
 					ft_memmove.c				\
 					ft_memset.c					\
 					ft_ptrtab.c					\
+					ft_ptrtab_alloc.c			\
 					)
 
 NUM_SRCS		= $(addprefix $(NUM_DIR),		\

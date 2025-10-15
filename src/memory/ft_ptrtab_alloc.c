@@ -12,20 +12,20 @@
 
 #include "libft.h"
 
-t_ptr_tab	*ft_tabfree(t_ptr_tab *tab)
+t_ptr_tab	*ft_tabfree(t_ptr_tab **tab)
 {
-	if (tab)
+	if (*tab)
 	{
-		if (tab->start)
-			free(tab->start);
-		tab->start = NULL;
-		if (tab->end)
-			free(tab->end);
-		tab->end = NULL;
-		free(tab);
-		tab = NULL;
+		if ((*tab)->start)
+			free((*tab)->start);
+		(*tab)->start = NULL;
+		if ((*tab)->end)
+			free((*tab)->end);
+		(*tab)->end = NULL;
+		free(*tab);
+		*tab = NULL;
 	}
-	return (tab);
+	return (*tab);
 }
 
 t_ptr_tab	*ft_taballoc(t_ptr_tab *tab, char *orig, size_t size)

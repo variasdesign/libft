@@ -110,7 +110,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memset(void *b, int c, size_t len);
 t_ptr_tab	*ft_taballoc(t_ptr_tab *ptr_tab, char *orig, size_t size);
-t_ptr_tab	*ft_tabfree(t_ptr_tab *ptr_tab);
+t_ptr_tab	*ft_tabfree(t_ptr_tab **ptr_tab);
 void		ft_bzero(void *s, size_t n);
 
 // NUMBER

@@ -14,12 +14,17 @@
 
 t_ptr_tab	*ft_tabfree(t_ptr_tab *tab)
 {
-	ft_freematrix(tab->start);
-	tab->start = NULL;
-	ft_freematrix(tab->end);
-	tab->end = NULL;
-	free(tab);
-	tab = NULL;
+	if (tab)
+	{
+		if (tab->start)
+			free(tab->start);
+		tab->start = NULL;
+		if (tab->end)
+			free(tab->end);
+		tab->end = NULL;
+		free(tab);
+		tab = NULL;
+	}
 	return (tab);
 }
 

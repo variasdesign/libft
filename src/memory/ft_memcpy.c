@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:51:57 by varias-c          #+#    #+#             */
-/*   Updated: 2024/10/01 18:06:10 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:13:52 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
 	const char	*s = src;
-	char		*d = dest;
+	char		*d;
 
+	d = dest;
 	while (len-- > 0)
 		*d++ = *s++;
 	return (dest);

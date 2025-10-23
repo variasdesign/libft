@@ -28,7 +28,7 @@ ssize_t	ft_tabfind(void *ptr, t_ptr_tab tab)
 	return (-1);
 }
 
-void	ft_tabmovebackall (ssize_t i, t_ptr_tab *tab)
+void	ft_tabmovebackall(ssize_t i, t_ptr_tab *tab)
 {
 	while (tab->start[i++])
 	{

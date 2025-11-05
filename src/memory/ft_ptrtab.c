@@ -30,8 +30,8 @@ ssize_t	ft_tabfind(void *ptr, t_ptr_tab tab)
 
 t_bool	ft_tabcmp(t_ptr_tab *tab1, t_ptr_tab *tab2, size_t t1i, size_t t2i)
 {
-	if (!tab1 && tab1->start[t1i]
-		&& (tab1->start[t1i] < tab2->start[t2i] || !tab2->start[t2i]))
+	if (!tab2 || (tab1 && tab1->start[t1i]
+		&& (tab1->start[t1i] < tab2->start[t2i] || !tab2->start[t2i])))
 		return (t);
 	return (f);
 }

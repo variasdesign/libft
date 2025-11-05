@@ -98,19 +98,20 @@ void		ft_lstiter(t_list *list, void (*f)(void *));
 
 // MEMORY
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
-ssize_t		ft_sstcmp(const void *s1, const void *s2);
-ssize_t		ft_tabfind(void *ptr, t_ptr_tab tab);
-void		*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab);
-ssize_t		ft_tabdel(t_ptr_tab *tab);
 size_t		ft_stcmp(const void *s1, const void *s2);
+ssize_t		ft_sstcmp(const void *s1, const void *s2);
+ssize_t		ft_tabdel(t_ptr_tab *tab);
+ssize_t		ft_tabfind(void *ptr, t_ptr_tab tab);
+t_ptr_tab	*ft_taballoc(t_ptr_tab *ptr_tab, char *orig, size_t size);
+t_ptr_tab	*ft_tabfree(t_ptr_tab **ptr_tab);
+t_bool		ft_tabcmp(t_ptr_tab *tab1, t_ptr_tab *tab2, size_t t1i, size_t t2i);
 void		**ft_freematrix(void **matrix);
 void		*ft_calloc(size_t count, size_t size);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memset(void *b, int c, size_t len);
-t_ptr_tab	*ft_taballoc(t_ptr_tab *ptr_tab, char *orig, size_t size);
-t_ptr_tab	*ft_tabfree(t_ptr_tab **ptr_tab);
+void		*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab);
 void		ft_bzero(void *s, size_t n);
 
 // NUMBER

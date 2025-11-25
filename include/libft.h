@@ -89,7 +89,6 @@ void		ft_lstdel_between(t_list *list, t_node *node, void (*del)(void *));
 void		ft_lstdel_first(t_list *list, void (*del)(void *));
 void		ft_lstdel_last(t_list *list, void (*del)(void *));
 void		ft_lstdel_list(t_list *list, void (*del)(void *));
-void		ft_lstdel_node(t_node *node, void (*del)(void *));
 void		ft_lstdel_pos(t_list *list, void (*del)(void *), ssize_t pos);
 void		ft_lstdel_wrapper(t_list *list, t_node *node, void (*del)(void *));
 void		*ft_lstget_data_index(t_list *list, ssize_t index);

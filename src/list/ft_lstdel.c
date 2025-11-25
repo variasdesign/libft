@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+static void	ft_lstdel_node(t_node *node, void (*del)(void *))
+{
+	if (!node || !del)
+		return ;
+	del(node->content);
+	free(node);
+}
+
 void	ft_lstdel_wrapper(t_list *list, t_node *node, void (*del)(void *))
 {
 	if (node == list->head)
@@ -45,6 +53,8 @@ void	ft_lstdel_first(t_list *list, void (*del)(void *))
 		tmp = list->head->next;
 		ft_lstdel_node(list->head, del);
 		list->head = tmp;
+		if (list->head)
+			list->head->prev = NULL;
 		list->count--;
 	}
 }
@@ -58,14 +68,8 @@ void	ft_lstdel_last(t_list *list, void (*del)(void *))
 		tmp = list->tail->prev;
 		ft_lstdel_node(list->tail, del);
 		list->tail = tmp;
+		if (list->tail)
+			list->tail->next = NULL;
 		list->count--;
 	}
-}
-
-void	ft_lstdel_node(t_node *node, void (*del)(void *))
-{
-	if (!node || !del)
-		return ;
-	del(node->content);
-	free(node);
 }

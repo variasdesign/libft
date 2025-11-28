@@ -6,13 +6,13 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:30:19 by varias-c          #+#    #+#             */
-/*   Updated: 2025/10/13 12:36:22 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:26:02 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_ptr_tab	*ft_tabfree(t_ptr_tab **tab)
+t_ptr_tab	*ft_tabfree(t_ptr_tab **tab, t_bool free_table)
 {
 	if (*tab)
 	{
@@ -22,8 +22,11 @@ t_ptr_tab	*ft_tabfree(t_ptr_tab **tab)
 		if ((*tab)->end)
 			free((*tab)->end);
 		(*tab)->end = NULL;
-		free(*tab);
-		*tab = NULL;
+		if (free_table)
+		{
+			free(*tab);
+			*tab = NULL;
+		}
 	}
 	return (*tab);
 }

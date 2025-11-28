@@ -20,6 +20,11 @@ t_node	*ft_lstnew_node(ssize_t data_size, void *content)
 	if (!node)
 		return (NULL);
 	node->content = malloc(data_size);
+	if (!node->content)
+	{
+		free (node);
+		return (NULL);
+	}
 	ft_memcpy(node->content, content, data_size);
 	node->prev = NULL;
 	node->next = NULL;

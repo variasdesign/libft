@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_print_error(char *msg, char *err, int exit_code)
+void	ft_perror(char *msg, char *err, t_bool must_exit, int exit_code)
 {
 	if (!msg)
 		ft_printf(2, "%s\n", err);
@@ -20,6 +20,6 @@ void	ft_print_error(char *msg, char *err, int exit_code)
 		ft_printf(2, msg);
 	else
 		ft_printf(2, msg, err);
-	if (exit_code)
+	if (must_exit)
 		exit(exit_code);
 }

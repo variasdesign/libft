@@ -130,7 +130,7 @@ size_t		ft_putendl_fd(char *s, int fd);
 size_t		ft_putnbr_fd(int n, int fd, char *base, t_bool sign);
 size_t		ft_putstr_fd(char *s, int fd);
 t_bool		check_specifiers(const char *s);
-void		ft_print_error(char *msg, char *err, int exit_code);
+void		ft_perror(char *msg, char *err, t_bool must_exit, int exit_code);
 
 // READ
 char		*append_buffer_to_line(char *line,

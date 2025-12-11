@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// FIX: Return something to indicate error in all these functions
 void	ft_lstadd_front(t_list *list, t_node *new_node)
 {
 	if (!list || !new_node)

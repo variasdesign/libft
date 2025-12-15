@@ -57,7 +57,7 @@ t_node	*ft_lstfind_node(t_list *list, ssize_t index)
 		return (NULL);
 	node = list->head;
 	i = 0;
-	while (node != NULL)
+	while (node)
 	{
 		if (i == index)
 			return (node);

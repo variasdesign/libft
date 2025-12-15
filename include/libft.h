@@ -100,7 +100,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t		ft_stcmp(const void *s1, const void *s2);
 ssize_t		ft_sstcmp(const void *s1, const void *s2);
 ssize_t		ft_tabdel(t_ptr_tab *tab);
-ssize_t		ft_tabfind(void *ptr, t_ptr_tab tab);
+ssize_t		ft_tabfind(void *ptr, t_ptr_tab tab, t_bool inclusive);
 t_ptr_tab	*ft_taballoc(t_ptr_tab *ptr_tab, char *orig, size_t size);
 t_ptr_tab	*ft_tabfree(t_ptr_tab **ptr_tab, t_bool free_table);
 t_bool		ft_tabcmp(t_ptr_tab *tab1, t_ptr_tab *tab2, size_t t1i, size_t t2i);

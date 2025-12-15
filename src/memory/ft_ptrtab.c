@@ -14,14 +14,15 @@
 
 // Check if ptr is inside start and end of any pointer range in table
 // TODO: Binary search to optimize times
-ssize_t	ft_tabfind(void *ptr, t_ptr_tab tab)
+ssize_t	ft_tabfind(void *ptr, t_ptr_tab tab, t_bool inclusive)
 {
 	ssize_t	i;
 
 	i = 0;
 	while (i < tab.count && tab.start[i] && tab.end[i])
 	{
-		if (ptr >= tab.start[i] && ptr < tab.end[i])
+		if ((inclusive && ptr >= tab.start[i] && ptr < tab.end[i])
+			|| (ptr > tab.start[i] && ptr < tab.end[i]))
 			return (i);
 		i++;
 	}
@@ -61,7 +62,7 @@ void	*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab)
 {
 	if (!start_or_end)
 	{
-		tab->start[i] = tab->end[i] - 1;
+		tab->start[i] = tab->end[i] - (tab->end[i] != NULL);
 		ft_tabmovebackall(i, tab);
 		return (tab->start[i]);
 	}

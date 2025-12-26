@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ptrtab.c                                        :+:      :+:    :+:   */
+/*   ft_ptrtab_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 19:26:23 by varias-c          #+#    #+#             */
-/*   Updated: 2025/11/21 15:16:46 by varias-c         ###   ########.fr       */
+/*   Created: 2025/12/18 14:14:14 by varias-c          #+#    #+#             */
+/*   Updated: 2025/12/18 14:16:34 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,31 +46,6 @@ t_bool	ft_tabcmp(t_ptr_tab *tab1, t_ptr_tab *tab2, size_t t1i, size_t t2i)
 			|| tab1->start[t1i] < tab2->start[t2i]))
 		return (t);
 	return (f);
-}
-
-void	ft_tabmovebackall(ssize_t i, t_ptr_tab *tab)
-{
-	while (tab->start[i++])
-	{
-		tab->end[i - 1] = tab->start[i] + (tab->start[i] != NULL);
-		tab->start[i] = tab->end[i] - (tab->end[i] != NULL);
-	}
-	tab->count -= !tab->start[tab->count - 1];
-}
-
-void	*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab)
-{
-	if (!start_or_end)
-	{
-		tab->start[i] = tab->end[i] - (tab->end[i] != NULL);
-		ft_tabmovebackall(i, tab);
-		return (tab->start[i]);
-	}
-	else
-	{
-		ft_tabmovebackall(i, tab);
-		return (tab->end[i]);
-	}
 }
 
 ssize_t	ft_tabptrlen(ssize_t i, t_ptr_tab tab)

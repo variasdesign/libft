@@ -6,7 +6,7 @@
 /*   By: varias-c <varias-c@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:18:15 by varias-c          #+#    #+#             */
-/*   Updated: 2025/11/28 14:52:11 by varias-c         ###   ########.fr       */
+/*   Updated: 2025/12/18 14:20:09 by varias-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void		ft_lstiter(t_list *list, void (*f)(void *));
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t		ft_stcmp(const void *s1, const void *s2);
 ssize_t		ft_sstcmp(const void *s1, const void *s2);
-ssize_t		ft_tabdel(t_ptr_tab *tab);
 ssize_t		ft_tabfind(void *ptr, t_ptr_tab tab, t_bool inclusive);
 t_ptr_tab	*ft_taballoc(t_ptr_tab *ptr_tab, char *orig, size_t size);
 t_ptr_tab	*ft_tabfree(t_ptr_tab **ptr_tab, t_bool free_table);
@@ -111,6 +110,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memset(void *b, int c, size_t len);
 void		*ft_tabdelone(t_bool start_or_end, ssize_t i, t_ptr_tab *tab);
+void		*ft_tabdelboth(ssize_t i, t_ptr_tab *tab);
 void		ft_bzero(void *s, size_t n);
 
 // NUMBER
